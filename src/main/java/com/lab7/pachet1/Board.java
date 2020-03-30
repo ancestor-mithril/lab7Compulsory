@@ -7,8 +7,7 @@ public class Board {
     private List<Token> tokenList=new ArrayList<>();
     public Board(int n, int m){
         for (int i=0; i<n; i++)
-            tokenList.add(new Token((int)(Math.random()*m)));
-        //System.out.println(tokenList.toString());
+            tokenList.add(new Token((int)(Math.random()*m)+1));
     }
 
     public Board(List<Token> tokenList) {

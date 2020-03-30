@@ -44,7 +44,7 @@ public class Game {
             if (flag)
                 points=0;
             else{
-                points=player.lenghtOfLongestAP();
+                points=player.getPoints();
                 if (points==-1){
                     points=n;
                     flag=true;

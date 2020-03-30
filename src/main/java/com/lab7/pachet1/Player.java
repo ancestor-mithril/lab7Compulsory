@@ -42,34 +42,37 @@ public class Player implements Runnable{
         else
             return playerTokens.size();
         boolean flag=true;
-        System.out.println(playerTokens.get(0).getTokenValue());
         for (int i=1; i<playerTokens.size(); i++){
             if (playerTokens.get(i).getTokenValue()-playerTokens.get(i-1).getTokenValue()!=difference)
             {
                 flag=false;
                 break;
             }
-            System.out.println(playerTokens.get(i).getTokenValue());
         }
         if (flag==true)
             return -1;
         int lg=playerTokens.size();
         int[] best=new int[lg];
         int[] poz=new int[lg];
+        int[] diff=new int[lg];
         best[lg-1]=1;
         poz[lg-1]=-1;
         int max=1;
         int p=lg-1;
+        diff[lg-1]=playerTokens.get(lg-1).getTokenValue()-playerTokens.get(lg-2).getTokenValue();
         for (int i=lg-2; i>=1; i--){
             best[i]=1;
             poz[i]=-1;
             for (int j=i+1; j<lg; j++){
-                if (playerTokens.get(i).getTokenValue()==playerTokens.get(i).getTokenValue()-difference && best[i]<best[j]+1){
+                if (playerTokens.get(i).getTokenValue()==playerTokens.get(j).getTokenValue()-diff[j] && best[i]<best[j]+1){
                     best[i]=best[j]+1;
                     poz[i]=j;
                     if(best[i]>max) {
                         max=best[i];p=i;
+
                     }
+                }else if (best[i]<best[j]+1){
+                    diff[j]=playerTokens.get(j).getTokenValue()-playerTokens.get(i).getTokenValue();
                 }
             }
         }

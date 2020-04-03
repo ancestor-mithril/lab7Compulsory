@@ -11,6 +11,9 @@ public class Token {
         this.tokenValue = tokenValue;
     }
 
+    /**
+     * aceasta functie a fost special facuta pentru momentele in care tokenul poate lua orice valoare
+     */
     public void setTokenValue() {
         this.tokenValue = 0;
     }
@@ -19,9 +22,15 @@ public class Token {
         this.tokenValue = tokenValue;
     }
 
+    /**
+     * aceast constructor a fost special facuta pentru momentele in care tokenul poate lua orice valoare
+     */
     public Token() {
         this.tokenValue = 0;
     }
 
-
+    @Override
+    public String toString() {
+        return "Value: " + tokenValue + "; ";
+    }
 }

@@ -3,9 +3,14 @@ package com.lab7.pachet1;
 import java.util.Arrays;
 
 public class Main {
-    public static void main(String[] args){
-        String[] players = new String[] {"da", "da1", "da2"};
-        Game game=new Game(40, 10, Arrays.asList(players));
-        game.run();
+
+    /**
+     * jocul se porneste cu new Game(numar de tokeni, valoarea maxima a tokenilor, numarul de playeri), cu timp maxim de joc 10 sec.
+     * jucatorul manual se instantiaza daca si numai daca numarul de playeri este 3, timpul de joc este 1 min
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        new Game(15, 35, 3);
     }
 }
